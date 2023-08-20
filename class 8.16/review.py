@@ -80,3 +80,13 @@ print(num)
 
 num.insert(-1, 0)
 print(num)
+
+
+'''
+for 变量 in 可迭代对象:
+    循环体
+可迭代对象有哪些？ 字符串，列表
+
+
+
+'''
