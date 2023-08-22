@@ -83,15 +83,15 @@ print(eggs[-1])
 那我们想要'鸭蛋'和'蠢蛋'调换位置我们应该怎么做呢？
 '''
 temp = eggs[1]
-eggs[1] = eggs[-1]
-eggs[-1] = temp
+eggs[1] = eggs[2]
+eggs[2] = temp
 print(eggs)
 
 '''
 temp在这里是一个临时变量,避免互相覆盖
 在python中有一种偷懒的方式
 '''
-eggs[1], eggs[-1] = eggs[-1], eggs[1]
+eggs[1], eggs[2] = eggs[2], eggs[1]
 print(eggs)
 
 '''
@@ -120,5 +120,85 @@ del eggss1[0]
 print(eggss1)
 
 '''
-有关于列表的概念实在太多了，明天继续！
+列表的切片（slice）语法的引入，是的python真正走向了高端
+'''
+# 要求将列表1的三个元素取出来，放到列表2中
+list1 = ['aaa', 'bbb', 'ccc', 'ddd', 'eee']
+list2 =[list1[0], list1[2], list1[-1]]
+print(list2)
+
+
+'''
+像这样，从列表取出元素是非常常见的操作，但是这里是取出三个元素
+如果我们要求取出最后200个元素，那时不是很辛酸
+'''
+# list2 = []
+# for i in range(-200, 0):
+#     list2.append(list1[i])
+
+'''
+虽然可以这样，但是每次都要嵌套一个循环太麻烦了，切片的引入很好的解决了这一个问题
+'''
+list2 = list1[2:5]
+print(list2)
+'''
+需要注意的是，结尾的位置是不会被包含的
+当然切片列表还有偷懒的写法
+'''
+list2 = list1[:2]
+print(list2)
+list3 = list1[-2:]
+print(list3)
+
+'''
+切片的进阶玩法：列表的切片其实还有第三个参数（步长：默认值为1）
+'''
+
+list4 = list(range(10))
+print(list4)
+print(list4[0:4:2])
+# 如果步长为-1会实现什么结果呢？
+print(list4[::-1])
+
+
+'''
+我们之前学的一些常见的操作符同样也可以用在列表中
+'''
+
+list11 = [123, 456]
+list22 = [156, 123]
+print(list11 > list22)
+
+'''
+为什么列表可以判断大小了？是根据什么来判断的呢？
+其实列表或者字符串都是对第一个元素进行比较
+这就需要知道ASCII这个概念了
+'''
+
+
+'''
+我们之前在拼接两个列表的是时候用的是extend，但其实我们还有一种更方便的方法
+列表的拼接,就和我们之前字符串的拼接一样
+'''
+list5 = list11 + list22
+print(list5)
+
+'''
+(*)乘号也叫做重复操作符，重复操作同样可以使用列表中
+'''
+listC = ['nihao']
+print(listC * 3)
+
+'''
+我们之前在for循环的时候经常可以见到一个 in 他是一个成员关系操作符
+in 和 not in
+'''
+
+list_in = ['pig', 'dog', 'fish']
+print("people" in list_in)
+print("people" not in list_in)
+
+'''
+那我们能不能用 in and
+not in
 '''
